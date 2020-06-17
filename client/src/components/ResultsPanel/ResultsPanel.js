@@ -3,7 +3,7 @@ import "./ResultsPanel.css";
 
 const ResultsPanel = () => {
   return (
-    <div id="results-panel">
+    <div id="results-panel" title="TEST">
       <p>
         You're feeling:{" "}
         <span id="emotions">{localStorage.getItem("user-input")}</span>
