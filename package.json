@@ -1,15 +1,28 @@
 {
-  "name": "emotify-backend",
+  "name": "emotify-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "emotify application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "cd client && npm run start",
+    "dev": "concurrently --kill-others-on-fail \"nodemon index.js\" \"npm run client\"",
+    "dev-full": "concurrently --kill-others-on-fail \"npm start\" \"npm run client\""
   },
-  "author": "isaac",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orzymandias/emotify-backend.git"
+  },
+  "author": "",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/orzymandias/emotify-backend/issues"
+  },
+  "homepage": "https://github.com/orzymandias/emotify-backend#readme",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "concurrently": "^5.2.0",
+    "eslint-config-google": "^0.14.0",
+    "nodemon": "^2.0.4"
   }
 }
