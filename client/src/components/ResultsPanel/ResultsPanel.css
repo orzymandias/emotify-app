@@ -1,0 +1,53 @@
+@import url("https://use.typekit.net/shp0tlv.css");
+
+p {
+  font-size: 16px;
+  color: white;
+  font-family: proxima-nova, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+#results-panel {
+  background-color: #191919;
+  text-align: left;
+  margin: 6em 5em 5em;
+  padding: 10px 30px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+#emotions {
+  font-size: 16px;
+  color: #ee8122;
+  font-family: proxima-nova, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+#greeting {
+  margin-top: 0px;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+}
+
+.result-container {
+  margin: 1em auto;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+/*
+@media (min-width: 750px) {
+  .results {
+    flex-direction: row;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+}
+*/

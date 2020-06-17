@@ -1,0 +1,40 @@
+@import url("https://use.typekit.net/shp0tlv.css");
+
+body {
+  background-color: #0f111d;
+}
+
+.search-results {
+  padding: auto;
+  margin: -160px;
+}
+
+#home-button-container {
+  position: relative;
+  margin: 50px 380px -60px 77px;
+  width: 150px;
+}
+
+#home-button {
+  color: white;
+  font-family: proxima-nova, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 50px;
+}
+
+#home-button:hover {
+  color: #ee8122;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (min-width: 750px) {
+  .results {
+    flex-direction: row;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+}
