@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "server": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd client && npm run start",
     "dev": "concurrently --kill-others-on-fail \"nodemon index.js\" \"npm run client\"",
@@ -21,15 +22,16 @@
   },
   "homepage": "https://github.com/orzymandias/emotify-backend#readme",
   "dependencies": {
-    "concurrently": "^5.2.0",
-    "eslint-config-google": "^0.14.0",
-    "yarn": "^1.22.4",
     "axios": "^0.19.2",
     "circular-json": "^0.5.9",
+    "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "eslint-config-google": "^0.14.0",
     "express": "^4.17.1",
-    "morgan": "^1.10.0"
+    "express-http-proxy": "^1.6.0",
+    "morgan": "^1.10.0",
+    "yarn": "^1.22.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
