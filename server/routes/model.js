@@ -1,8 +1,7 @@
 /* eslint-disable new-cap */
 const predictRouter = require('express').Router();
-const config = require('../utils/config');
 const proxy = require('express-http-proxy');
-
+const config = require('../utils/config');
 
 // predictRouter.post('*', async (req, res) => {
 //   try {
@@ -23,12 +22,14 @@ const proxy = require('express-http-proxy');
 //   }
 // });
 
-predictRouter.use('/', proxy(config.EMOTIFY_MODEL, {
-  proxyReqPathResolver: function (req) {
-    console.log(req.url)
-    return req.url
-  }
-}));
-
+predictRouter.use(
+  '/',
+  proxy(config.EMOTIFY_MODEL, {
+    proxyReqPathResolver(req) {
+      console.log('req', req);
+      return req.url;
+    },
+  })
+);
 
 module.exports = predictRouter;
