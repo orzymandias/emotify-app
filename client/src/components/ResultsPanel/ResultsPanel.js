@@ -3,11 +3,19 @@ import './ResultsPanel.css';
 
 const ResultsPanel = (props) => {
   return (
+<<<<<<< HEAD
     <div id="results-panel">
       {/* <p>
         You're feeling:{' '}
         <span id="emotions">{localStorage.getItem('user-input')}</span>
       </p> */}
+=======
+    <div id="results-panel" title="TEST">
+      <p>
+        You're feeling:{" "}
+        <span id="emotions">{localStorage.getItem("user-input")}</span>
+      </p>
+>>>>>>> 4fac7a6cbaaa0f1a14fb64959bfc0a49b3846bb5
       <p id="greeting">Here's some music for you to dive into:</p>
       <br />
       <div className="results">
