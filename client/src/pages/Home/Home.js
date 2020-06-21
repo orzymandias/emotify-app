@@ -1,34 +1,30 @@
-import React, { Component } from "react";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import "./Home.css";
+import React, { useState } from 'react';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import './Home.css';
 
-class Home extends Component {
-  state = {
-    searchBarPlaceholderText: "How are you feeling today?",
+const Home = (props) => {
+  const [userInput, setInput] = useState('How are you feeling today?');
+
+  const searchBarOnClickHandler = () => {
+    setInput('');
   };
 
-  searchBarOnClickHandler = () => {
-    this.setState({ searchBarPlaceholderText: "" });
+  const searchBarOnBlurHandler = () => {
+    setInput('How are you feeling');
   };
 
-  searchBarOnBlurHandler = () => {
-    this.setState({ searchBarPlaceholderText: "How are you feeling today?" });
-  };
+  return (
+    <div className="home">
+      <h1 id="title">Emotify</h1>
 
-  render() {
-    return (
-      <div className="home">
-        <h1 id="title">Emotify</h1>
-
-        <SearchBar
-          placeholderText={this.state.searchBarPlaceholderText}
-          onClick={this.searchBarOnClickHandler}
-          onBlur={this.searchBarOnBlurHandler}
-          onKeyPress={this.props.onEnter}
-        />
-      </div>
-    );
-  }
-}
+      <SearchBar
+        placeholderText={userInput}
+        onClick={searchBarOnClickHandler}
+        onBlur={searchBarOnBlurHandler}
+        onKeyPress={props.onKeyPress}
+      />
+    </div>
+  );
+};
 
 export default Home;

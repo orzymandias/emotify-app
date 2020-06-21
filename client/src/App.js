@@ -1,31 +1,62 @@
-import React, { Component } from "react";
-import { Route, BrowserRouter } from "react-router-dom";
-import "./App.css";
-import Home from "./pages/Home/Home";
-import SearchResults from "./pages/SearchResults/SearchResults";
+import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
+import { Route, withRouter } from 'react-router-dom';
+import './App.css';
+import Home from './pages/Home/Home';
+import SearchResults from './pages/SearchResults/SearchResults';
+import { postText } from './services';
+import axios from 'axios';
 
-class App extends Component {
-  userInputEnteredHandler = (event) => {
-    if (event.key === "Enter") {
-      localStorage.setItem("user-input", event.target.value);
-      window.location.href = "search-results";
+const App = (props) => {
+  const [prediction, setPrediction] = useState({});
+
+  /**
+   * To implement: Wake model on initial render, then on response, return search bar
+   */
+  useEffect(() => {}, []);
+
+  /**
+   * Handles ENTER event. Send fetch request to Emotify-model.
+   */
+  const userInputEnteredHandler = async (event) => {
+    if (event.key === 'Enter') {
+      // localStorage.setItem('user-input', event.target.value);
+      try {
+        const response = await postText(event.target.value);
+        setPrediction(response.data);
+      } catch (err) {
+        alert(err);
+        console.error(err);
+      }
     }
   };
 
-  render() {
-    return (
-      <BrowserRouter>
-        <div className="App">
-          <Route
-            exact
-            path="/"
-            render={() => <Home onEnter={this.userInputEnteredHandler} />}
-          />
-          <Route exact path="/search-results" component={SearchResults} />
-        </div>
-      </BrowserRouter>
-    );
-  }
-}
+  /**
+   * POST emotion
+   * Avoid routing at initial render till response is received
+   */
+  let firstUpdate = useRef(true);
+  useEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
+    props.history.push('/search-results');
+  }, [prediction, props.history]);
 
-export default App;
+  return (
+    <div className="App">
+      <Route
+        exact
+        path="/"
+        render={() => <Home onKeyPress={userInputEnteredHandler} />}
+      />
+      <Route
+        exact
+        path="/search-results"
+        render={() => <SearchResults prediction={prediction} />}
+      />
+    </div>
+  );
+};
+
+export default withRouter(App);
