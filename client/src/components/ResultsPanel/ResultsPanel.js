@@ -10,11 +10,13 @@ const ResultsPanel = (props) => {
       <br />
 
       <div className="results">
-        <div className="result-container">
-          {tracks.map((trackObj) => {
-            return <Frame trackId={trackObj.id} />;
-          })}
-        </div>
+        {tracks.map((trackObj) => {
+          return (
+            <div className="result-container">
+              <Frame trackId={trackObj.id} />;
+            </div>
+          );
+        })}
       </div>
     </div>
   );

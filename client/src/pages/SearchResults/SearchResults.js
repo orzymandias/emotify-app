@@ -5,6 +5,8 @@ import './SearchResults.css';
 
 const SearchResults = (props) => {
   const { emotion, prediction, salience, ...rest } = props.prediction;
+  const { recommendation } = props.recommendation;
+
   return (
     <div className="search-results">
       <div id="home-button-container">
@@ -17,11 +19,11 @@ const SearchResults = (props) => {
             {salience} {EMOTION_CLASSES[emotion]}
           </span>{' '}
         </p>
-
-        {props.recommendation.tracks ? (
-          <ResultsPanel tracks={props.recommendation.tracks} />
-        ) : null}
       </div>
+
+      {props.recommendation.tracks ? (
+        <ResultsPanel tracks={props.recommendation.tracks} />
+      ) : null}
     </div>
   );
 };
