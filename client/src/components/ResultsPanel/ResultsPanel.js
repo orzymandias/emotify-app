@@ -1,91 +1,19 @@
 import React from 'react';
 import './ResultsPanel.css';
+import { Frame } from './frames';
 
 const ResultsPanel = (props) => {
+  const { tracks } = props;
   return (
-<<<<<<< HEAD
     <div id="results-panel">
-      {/* <p>
-        You're feeling:{' '}
-        <span id="emotions">{localStorage.getItem('user-input')}</span>
-      </p> */}
-=======
-    <div id="results-panel" title="TEST">
-      <p>
-        You're feeling:{" "}
-        <span id="emotions">{localStorage.getItem("user-input")}</span>
-      </p>
->>>>>>> 4fac7a6cbaaa0f1a14fb64959bfc0a49b3846bb5
       <p id="greeting">Here's some music for you to dive into:</p>
       <br />
+
       <div className="results">
         <div className="result-container">
-          <iframe
-            src="https://open.spotify.com/embed/track/60nZcImufyMA1MKQY3dcCH"
-            width="300"
-            height="380"
-            title="one"
-            frameBorder="0"
-            allowtransparency="true"
-            allow="encrypted-media"
-          ></iframe>
-        </div>
-
-        <div className="result-container">
-          <iframe
-            src="https://open.spotify.com/embed/track/6JV2JOEocMgcZxYSZelKcc"
-            width="300"
-            title="two"
-            height="380"
-            frameBorder="0"
-            allowtransparency="true"
-            allow="encrypted-media"
-          ></iframe>
-        </div>
-
-        <div className="result-container">
-          <iframe
-            src="https://open.spotify.com/embed/track/0ZVPABdzJEa0nG85uAlBjB"
-            width="300"
-            title="three"
-            height="380"
-            frameBorder="0"
-            allowtransparency="true"
-            allow="encrypted-media"
-          ></iframe>
-        </div>
-
-        <div className="result-container">
-          <iframe
-            src="https://open.spotify.com/embed/track/5haXbSJqjjM0TCJ5XkfEaC"
-            width="300"
-            height="380"
-            frameBorder="0"
-            allowtransparency="true"
-            allow="encrypted-media"
-          ></iframe>
-        </div>
-
-        <div className="result-container">
-          <iframe
-            src="https://open.spotify.com/embed/track/4m6AKNNWgzTwnHUZxLMjRj"
-            width="300"
-            height="380"
-            frameBorder="0"
-            allowtransparency="true"
-            allow="encrypted-media"
-          ></iframe>
-        </div>
-
-        <div className="result-container">
-          <iframe
-            src="https://open.spotify.com/embed/track/05wIrZSwuaVWhcv5FfqeH0"
-            width="300"
-            height="380"
-            frameBorder="0"
-            allowtransparency="true"
-            allow="encrypted-media"
-          ></iframe>
+          {tracks.map((trackObj) => {
+            return <Frame trackId={trackObj.id} />;
+          })}
         </div>
       </div>
     </div>
