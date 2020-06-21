@@ -32,14 +32,14 @@ Used to predict emotion based on feature text
 
 ```json
 {
-  "emotion": "happiness",
+  "emotion": 1,
   "emotion-classes": "{0: 'anger', 1: 'fear', 2: 'happiness', 3: 'sadness'}",
   "prediction": "[0.05598123 0.00394219 0.6793236  0.26075292]",
   "salience": "0.6793236",
   "success": true
 }
 ```
-  * emotion refers to the predicted emotion
+  * emotion refers to the predicted emotion based on the emotion class
   * emotion clases represents the indices of the emotion in the prediction array.
   * salience represent the probability of the predicted emotion.
 
