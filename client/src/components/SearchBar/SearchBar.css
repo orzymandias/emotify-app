@@ -1,4 +1,4 @@
-@import url("https://use.typekit.net/shp0tlv.css");
+@import url('https://use.typekit.net/shp0tlv.css');
 
 #searchbar {
   background-color: white;
@@ -12,6 +12,10 @@
   border-style: none;
   padding-left: 8px;
   outline: none;
+}
+
+.spinner {
+  margin: 0 auto;
 }
 
 #searchbar-container {
