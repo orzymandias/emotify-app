@@ -1,14 +1,13 @@
-import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home/Home';
 import SearchResults from './pages/SearchResults/SearchResults';
-import { postText } from './services';
-import axios from 'axios';
+import { postText, getRecommendation } from './services/index.js';
 
 const App = (props) => {
   const [prediction, setPrediction] = useState({});
-
+  const [recommendation, setRecommendation] = useState({});
   /**
    * To implement: Wake model on initial render, then on response, return search bar
    */
@@ -21,8 +20,12 @@ const App = (props) => {
     if (event.key === 'Enter') {
       // localStorage.setItem('user-input', event.target.value);
       try {
-        const response = await postText(event.target.value);
-        setPrediction(response.data);
+        const predictionResponse = await postText(event.target.value);
+        setPrediction(predictionResponse.data);
+        const reccoResponse = await getRecommendation(
+          predictionResponse.data.emotion
+        );
+        setRecommendation(reccoResponse.data);
       } catch (err) {
         alert(err);
         console.error(err);
@@ -53,7 +56,12 @@ const App = (props) => {
       <Route
         exact
         path="/search-results"
-        render={() => <SearchResults prediction={prediction} />}
+        render={() => (
+          <SearchResults
+            prediction={prediction}
+            recommendation={recommendation}
+          />
+        )}
       />
     </div>
   );
