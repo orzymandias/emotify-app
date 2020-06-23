@@ -35,7 +35,14 @@ export const postText = (feature) => {
  */
 
 export const getRecommendation = (emotion) => {
-  const url = generateRecommendUrl(emotion, seedArtists[0], seedTracks[0], 9);
+  const seedArtistIndex = Math.round(Math.random() * 5);
+  const seedTrackIndex = Math.round(Math.random() * 10);
+  const url = generateRecommendUrl(
+    emotion,
+    seedArtists[emotion][seedArtistIndex],
+    seedTracks[emotion][seedTrackIndex],
+    9
+  );
   const options = {
     url,
     method: "get",
