@@ -40,11 +40,6 @@ p {
   display: flex;
   flex-direction: column;
   width: 300px;
-  transition: all 500ms;
-}
-
-.results-container:hover {
-  transform: translateY(-3px) scale(1.2);
 }
 
 /*
