@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Route, withRouter } from 'react-router-dom';
-import './App.css';
-import Home from './pages/Home/Home';
-import SearchResults from './pages/SearchResults/SearchResults';
-import { AppBar } from './components/AppBar';
-import { postText, wakeModel, getRecommendation } from './services/index.js';
+import React, { useState, useRef, useEffect } from "react";
+import { Route, withRouter } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home/Home";
+import SearchResults from "./pages/SearchResults/SearchResults";
+import { AppBar } from "./components/AppBar";
+import { postText, wakeModel, getRecommendation } from "./services/index.js";
 
 const App = (props) => {
   /**
@@ -24,14 +24,15 @@ const App = (props) => {
       firstUpdate.current = false;
       return;
     }
-    props.history.push('/search-results');
+    props.history.push("/search-results");
   }, [prediction, props.history]);
 
   /**
    * Handles ENTER event. Send fetch request to Emotify-model for prediction object.
    */
   const userInputEnteredHandler = async (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
+      event.preventDefault();
       // localStorage.setItem('user-input', event.target.value);
       try {
         const predictionResponse = await postText(event.target.value);

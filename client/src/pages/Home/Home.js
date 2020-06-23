@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { postText } from '../../services/';
-import SearchBar from '../../components/SearchBar/SearchBar';
-import './Home.css';
+import React, { useState, useEffect } from "react";
+import { postText } from "../../services/";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import "./Home.css";
 
 const Home = (props) => {
   /**
    * @constant modelStatus {boolean}: model active or not on heroku.
    */
-  const [userInput, setInput] = useState('How are you feeling today?');
+  const [userInput, setInput] = useState("Enter text. Get music. It's simple.");
   const [modelStatus, setModelStatus] = useState(false);
 
   const searchBarOnClickHandler = () => {
-    setInput('');
+    setInput("");
   };
 
   const searchBarOnBlurHandler = () => {
-    setInput('How are you feeling');
+    setInput("Enter text. Get music. It's simple.");
   };
 
   /**
@@ -35,12 +35,12 @@ const Home = (props) => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await postText('test');
+        const res = await postText("test");
         if (res.status == 200) {
           setModelStatus(true);
         }
       } catch (err) {
-        console.error('Model error load', err);
+        console.error("Model error load", err);
       }
     })();
   }, []);

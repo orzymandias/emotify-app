@@ -1,4 +1,4 @@
-@import url('https://use.typekit.net/shp0tlv.css');
+@import url("https://use.typekit.net/shp0tlv.css");
 
 p {
   font-size: 16px;
@@ -18,16 +18,16 @@ p {
   flex-direction: column;
 }
 
-#emotions {
+#greeting {
+  margin-top: 0px;
+}
+
+#emotion {
   font-size: 16px;
   color: #ee8122;
   font-family: proxima-nova, sans-serif;
   font-weight: 300;
   font-style: normal;
-}
-
-#greeting {
-  margin-top: 0px;
 }
 
 .results {

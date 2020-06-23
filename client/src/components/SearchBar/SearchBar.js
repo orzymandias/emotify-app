@@ -1,13 +1,13 @@
-import React from 'react';
-import './SearchBar.css';
-import ReactLoading from 'react-loading';
+import React from "react";
+import "./SearchBar.css";
+import ReactLoading from "react-loading";
 
 const SearchBar = (props) => {
   return (
     <>
       <div id="searchbar-container">
         {props.modelStatus ? (
-          <input
+          <textarea
             id="searchbar"
             type="text"
             placeholder={props.placeholderText}

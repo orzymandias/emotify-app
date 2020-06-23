@@ -6,6 +6,9 @@ const ResultsPanel = (props) => {
   const { tracks } = props;
   return (
     <div id="results-panel">
+      <p>
+        You're feeling: <span id="emotion">{props.emotion}</span>
+      </p>
       <p id="greeting">Here's some music for you to dive into:</p>
       <br />
 
