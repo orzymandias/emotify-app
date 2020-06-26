@@ -4,10 +4,13 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import "./Home.css";
 
 const Home = (props) => {
+  const searchbarPlaceholderText =
+    "Emotify is a music search engine based on emotions. Enter any text here to get music based on its emotional content!";
+
   /**
    * @constant modelStatus {boolean}: model active or not on heroku.
    */
-  const [userInput, setInput] = useState("Enter text. Get music. It's simple.");
+  const [userInput, setInput] = useState(searchbarPlaceholderText);
   const [modelStatus, setModelStatus] = useState(false);
 
   const searchBarOnClickHandler = () => {
@@ -15,7 +18,7 @@ const Home = (props) => {
   };
 
   const searchBarOnBlurHandler = () => {
-    setInput("Enter text. Get music. It's simple.");
+    setInput(searchbarPlaceholderText);
   };
 
   /**
@@ -48,6 +51,7 @@ const Home = (props) => {
   return (
     <div className="home">
       <h1 id="title">Emotify</h1>
+      <p id="slogan">Enter text. Get music. It's simple.</p>
       <SearchBar
         modelStatus={modelStatus}
         placeholderText={userInput}
