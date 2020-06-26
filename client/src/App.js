@@ -32,18 +32,28 @@ const App = (props) => {
    */
   const userInputEnteredHandler = async (event) => {
     if (event.key === "Enter") {
-      event.preventDefault();
-      // localStorage.setItem('user-input', event.target.value);
-      try {
-        const predictionResponse = await postText(event.target.value);
-        setPrediction(predictionResponse.data);
-        const reccoResponse = await getRecommendation(
-          predictionResponse.data.emotion
-        );
-        setRecommendation(reccoResponse.data);
-      } catch (err) {
-        alert(err);
-        console.error(err);
+      const userInput = document.getElementById("searchbar").value;
+      if (userInput === "") {
+        alert("Please input some text");
+      } else {
+        event.preventDefault();
+        // localStorage.setItem('user-input', event.target.value);
+        try {
+          const predictionResponse = await postText(event.target.value);
+          setPrediction(predictionResponse.data);
+          const reccoResponse = await getRecommendation(
+            predictionResponse.data.emotion
+          );
+          setRecommendation(reccoResponse.data);
+        } catch (err) {
+          if (err.response.status === 413) {
+            // Input text is too large (more than 102,386 characters)
+            alert("Please enter a shorter piece of text");
+          } else {
+            alert(err);
+            console.error(err);
+          }
+        }
       }
     }
   };

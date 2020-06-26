@@ -43,10 +43,6 @@ const NUMRESULTS = 9;
 export const getRecommendation = (emotion) => {
   const seedArtistIndex = Math.round(Math.random() * MAXARTISTINDEX);
   const seedTrackIndex = Math.round(Math.random() * MAXTRACKINDEX);
-
-  console.log(seedArtistIndex);
-  console.log(seedTrackIndex);
-
   const url = generateRecommendUrl(
     emotion,
     seedArtists[emotion][seedArtistIndex],

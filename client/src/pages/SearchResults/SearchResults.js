@@ -8,6 +8,8 @@ const SearchResults = (props) => {
   const { emotion, prediction, salience, ...rest } = props.prediction;
   const { recommendation } = props.recommendation;
 
+  console.log(salience);
+
   document.body.style.backgroundImage = "none";
 
   return (
