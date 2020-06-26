@@ -27,6 +27,12 @@ export const postText = (feature) => {
   return axios(options);
 };
 
+const NUMARTISTS = 10;
+const NUMTRACKS = 20;
+const MAXARTISTINDEX = NUMARTISTS - 1;
+const MAXTRACKINDEX = NUMTRACKS - 1;
+const NUMRESULTS = 9;
+
 /**
  * Fetch recommended music from spotify based on emotion
  * @returns Promise with recommendation object
@@ -35,13 +41,17 @@ export const postText = (feature) => {
  */
 
 export const getRecommendation = (emotion) => {
-  const seedArtistIndex = Math.round(Math.random() * 5);
-  const seedTrackIndex = Math.round(Math.random() * 10);
+  const seedArtistIndex = Math.round(Math.random() * MAXARTISTINDEX);
+  const seedTrackIndex = Math.round(Math.random() * MAXTRACKINDEX);
+
+  console.log(seedArtistIndex);
+  console.log(seedTrackIndex);
+
   const url = generateRecommendUrl(
     emotion,
     seedArtists[emotion][seedArtistIndex],
     seedTracks[emotion][seedTrackIndex],
-    9
+    NUMRESULTS
   );
   const options = {
     url,
