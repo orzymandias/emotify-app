@@ -5,7 +5,7 @@ import "./Home.css";
 
 const Home = (props) => {
   const searchbarPlaceholderText =
-    "Emotify is a music search engine based on emotions. Enter any text here to get music based on its emotional content!";
+    "Enter any text here to get music based on its emotional content!\n\nTry entering: how you're feeling, a tweet, a poem, a message from a friend";
 
   /**
    * @constant modelStatus {boolean}: model active or not on heroku.
@@ -59,6 +59,7 @@ const Home = (props) => {
         onBlur={searchBarOnBlurHandler}
         onKeyPress={props.onKeyPress}
       />
+      <p id="additional-info">Music search engine based on emotions</p>
     </div>
   );
 };

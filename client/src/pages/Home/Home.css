@@ -8,7 +8,7 @@ body {
   display: grid;
   justify-items: center;
   align-items: center;
-  padding: 8em;
+  padding: 10em;
 }
 
 .home {
@@ -21,7 +21,7 @@ body {
   font-weight: 700;
   font-style: normal;
   font-size: 115px;
-  margin: auto;
+  margin: -50px auto auto auto;
 }
 
 #slogan {
@@ -32,4 +32,12 @@ body {
   margin: -3px auto 1em auto;
   color: #ee8122;
   width: 375px;
+}
+
+#additional-info {
+  font-family: proxima-nova, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 17px;
+  margin-bottom: -175px;
 }

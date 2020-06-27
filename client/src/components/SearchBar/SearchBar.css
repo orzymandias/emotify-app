@@ -18,8 +18,8 @@
 }
 
 #searchbar:hover {
-  box-shadow: 0 0 9px black inset;
-  transition: box-shadow 0.5s ease-in-out;
+  box-shadow: 0 0 10px black inset;
+  transition: box-shadow 0.4s ease-in-out;
 }
 
 #searchbar:focus {
