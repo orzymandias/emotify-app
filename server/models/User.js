@@ -5,20 +5,25 @@ const validate = require('mongoose-validator');
  * Todo: Add more validation for other fields
  */
 
-const userValidator = [
-  validate({
-    validator: 'isLength',
-    arguments: [6, 20],
-    message: 'username should be between 6 and 20 chars',
-  }),
-];
+// const userValidator = [
+//   validate({
+//     validator: 'isLength',
+//     arguments: [6, 20],
+//     message: 'username should be between 6 and 20 chars',
+//   }),
+// ];
 
 const userSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
+  spotifyId: {
+    type: String,
+    unique: true,
+  },
   username: {
     type: String,
     unique: true,
-    validate: usernameValidator,
+    required: true,
+    // validate: userValidator,
   },
   email: {
     type: String,
@@ -27,7 +32,6 @@ const userSchema = mongoose.Schema({
   },
   password: {
     type: String,
-    require: true,
   },
   role: { type: String },
   provider: { type: String },

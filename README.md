@@ -1,6 +1,10 @@
 # Emotify-App
 
+[![Build Status](https://travis-ci.org/orzymandias/emotify-app.svg?branch=master)](https://travis-ci.org/orzymandias/emotify-app)
+
 Emotify is a music recommendation service. This repository in contains both frontend and server side code.
+
+The Emotify model is available [here](https://github.com/orzymandias/emotify-model).
 
 ## Features
 
@@ -26,5 +30,4 @@ The project requires some environment variables to be set to work properly. In t
 
 Before pushing to Github, ensure that your code is formatted and your tests are passing. These two commands should help with that:
 
-- `yarn run format` : formats your code
 - `yarn run test`: runs the tests and prints the output

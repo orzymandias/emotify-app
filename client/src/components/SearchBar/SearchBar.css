@@ -14,6 +14,16 @@
   outline: none;
   height: 100px;
   resize: none;
+  text-align: justify;
+}
+
+#searchbar:hover {
+  box-shadow: 0 0 10px black inset;
+  transition: box-shadow 0.4s ease-in-out;
+}
+
+#searchbar:focus {
+  box-shadow: none;
 }
 
 .spinner {

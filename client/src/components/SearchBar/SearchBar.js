@@ -1,6 +1,6 @@
-import React from "react";
-import "./SearchBar.css";
-import ReactLoading from "react-loading";
+import React from 'react';
+import './SearchBar.css';
+import ReactLoading from 'react-loading';
 
 const SearchBar = (props) => {
   return (
@@ -16,7 +16,9 @@ const SearchBar = (props) => {
             onKeyPress={props.onKeyPress}
           />
         ) : (
-          <ReactLoading type="bars" color="#1DB954" className="spinner" />
+          <>
+            <ReactLoading type="bars" color="#2DB954" className="spinner" />
+          </>
         )}
       </div>
     </>

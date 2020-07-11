@@ -20,6 +20,24 @@ body {
   font-family: proxima-nova, sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: 100px;
-  margin: auto;
+  font-size: 115px;
+  margin: -50px auto auto auto;
+}
+
+#slogan {
+  font-family: proxima-nova, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 25px;
+  margin: -3px auto 1em auto;
+  color: #ee8122;
+  width: 375px;
+}
+
+#additional-info {
+  font-family: proxima-nova, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 17px;
+  margin-bottom: -175px;
 }

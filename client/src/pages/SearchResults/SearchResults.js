@@ -1,14 +1,16 @@
-import React, { useEffect } from "react";
-import { EMOTION_CLASSES } from "../../utils/Constants";
-import ResultsPanel from "../../components/ResultsPanel/ResultsPanel";
+import React from 'react';
+import { EMOTION_CLASSES } from '../../utils/Constants';
+import ResultsPanel from '../../components/ResultsPanel/ResultsPanel';
 // import { TRACKS_SAMPLE } from '../../utils/Mocks';
-import "./SearchResults.css";
+import './SearchResults.css';
 
 const SearchResults = (props) => {
   const { emotion, prediction, salience, ...rest } = props.prediction;
   const { recommendation } = props.recommendation;
 
-  document.body.style.backgroundImage = "none";
+  console.log(salience);
+
+  document.body.style.backgroundImage = 'none';
 
   return (
     <div className="search-results">

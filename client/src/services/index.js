@@ -1,12 +1,12 @@
 /**
  * @description services.js for making external queries
  */
-import axios from "axios";
+import axios from 'axios';
 import {
   seedArtists,
   seedTracks,
   generateRecommendUrl,
-} from "../utils/SearchHelper";
+} from '../utils/SearchHelper';
 
 /**
  * Makes POST request to model endpoint for prediction
@@ -16,9 +16,9 @@ import {
 export const postText = (feature) => {
   const options = {
     url: `${process.env.REACT_APP_HOST}/api/model/predict`,
-    method: "post",
+    method: 'post',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     data: {
       feature,
@@ -26,6 +26,12 @@ export const postText = (feature) => {
   };
   return axios(options);
 };
+
+const NUMARTISTS = 10;
+const NUMTRACKS = 20;
+const MAXARTISTINDEX = NUMARTISTS - 1;
+const MAXTRACKINDEX = NUMTRACKS - 1;
+const NUMRESULTS = 9;
 
 /**
  * Fetch recommended music from spotify based on emotion
@@ -35,17 +41,29 @@ export const postText = (feature) => {
  */
 
 export const getRecommendation = (emotion) => {
-  const seedArtistIndex = Math.round(Math.random() * 5);
-  const seedTrackIndex = Math.round(Math.random() * 10);
+  const seedArtistIndex = Math.round(Math.random() * MAXARTISTINDEX);
+  const seedTrackIndex = Math.round(Math.random() * MAXTRACKINDEX);
   const url = generateRecommendUrl(
     emotion,
     seedArtists[emotion][seedArtistIndex],
     seedTracks[emotion][seedTrackIndex],
-    9
+    NUMRESULTS
   );
   const options = {
     url,
-    method: "get",
+    method: 'get',
   };
   return axios(options);
+};
+
+export const getUser = (feature) => {
+  const options = {
+    url: `${process.env.REACT_APP_HOST}/user`,
+    method: 'get',
+  };
+  return axios(options);
+};
+
+export const loginSpotify = () => {
+  return axios.get(`${process.env.REACT_APP_HOST}/auth/spotify`);
 };

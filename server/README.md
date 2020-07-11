@@ -8,7 +8,8 @@ is running on 'http://localhost:3001/'.
 Open endpoints require no Authentication.
 
 * [Model](model.md) : `GET /api/model/`
-* [Spotify](https://developer.spotify.com/documentation/web-api/reference/) : `GET /api/spotify/`
+* [Spotify](https://developer.spotify.com/documentation/web-api/reference/) : `GET /api/spotify/` (Proxy endpoint)
+   * Accessible only with client credentials in .env file, contact maintainers for CLIENT_SECRET
 
 ## Endpoints that require Authentication (To be implemented)
 
