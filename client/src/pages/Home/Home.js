@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { postText } from "../../services/";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import "./Home.css";
+import React, { useState, useEffect } from 'react';
+import { postText } from '../../services/';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import './Home.css';
 
 const Home = (props) => {
   const searchbarPlaceholderText =
@@ -14,7 +14,7 @@ const Home = (props) => {
   const [modelStatus, setModelStatus] = useState(false);
 
   const searchBarOnClickHandler = () => {
-    setInput("");
+    setInput('');
   };
 
   const searchBarOnBlurHandler = () => {
@@ -38,12 +38,12 @@ const Home = (props) => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await postText("test");
-        if (res.status == 200) {
+        const res = await postText('test');
+        if (res.status === 200) {
           setModelStatus(true);
         }
       } catch (err) {
-        console.error("Model error load", err);
+        console.error('Model error load', err);
       }
     })();
   }, []);

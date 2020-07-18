@@ -4,7 +4,8 @@ import "./App.css";
 import Home from "./pages/Home/Home";
 import SearchResults from "./pages/SearchResults/SearchResults";
 import { AppBar } from "./components/AppBar";
-import { postText, wakeModel, getRecommendation } from "./services/index.js";
+import { postText, getRecommendation } from "./services/index.js";
+import { UserProvider } from "./context/UserProvider";
 
 const App = (props) => {
   /**
@@ -59,24 +60,26 @@ const App = (props) => {
   };
 
   return (
-    <div className="App">
-      <AppBar />
-      <Route
-        exact
-        path="/"
-        render={() => <Home onKeyPress={userInputEnteredHandler} />}
-      />
-      <Route
-        exact
-        path="/search-results"
-        render={() => (
-          <SearchResults
-            prediction={prediction}
-            recommendation={recommendation}
-          />
-        )}
-      />
-    </div>
+    <UserProvider>
+      <div className="App">
+        <AppBar />
+        <Route
+          exact
+          path="/"
+          render={() => <Home onKeyPress={userInputEnteredHandler} />}
+        />
+        <Route
+          exact
+          path="/search-results"
+          render={() => (
+            <SearchResults
+              prediction={prediction}
+              recommendation={recommendation}
+            />
+          )}
+        />
+      </div>
+    </UserProvider>
   );
 };
 

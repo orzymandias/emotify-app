@@ -1,12 +1,12 @@
 /**
  * @description services.js for making external queries
  */
-import axios from "axios";
+import axios from 'axios';
 import {
   seedArtists,
   seedTracks,
   generateRecommendUrl,
-} from "../utils/SearchHelper";
+} from '../utils/SearchHelper';
 
 /**
  * Makes POST request to model endpoint for prediction
@@ -16,9 +16,9 @@ import {
 export const postText = (feature) => {
   const options = {
     url: `${process.env.REACT_APP_HOST}/api/model/predict`,
-    method: "post",
+    method: 'post',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     data: {
       feature,
@@ -51,7 +51,19 @@ export const getRecommendation = (emotion) => {
   );
   const options = {
     url,
-    method: "get",
+    method: 'get',
   };
   return axios(options);
+};
+
+export const getUser = (feature) => {
+  const options = {
+    url: `${process.env.REACT_APP_HOST}/user`,
+    method: 'get',
+  };
+  return axios(options);
+};
+
+export const loginSpotify = () => {
+  return axios.get(`${process.env.REACT_APP_HOST}/auth/spotify`);
 };

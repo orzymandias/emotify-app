@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { EMOTION_CLASSES } from "../../utils/Constants";
 import ResultsPanel from "../../components/ResultsPanel/ResultsPanel";
 // import { TRACKS_SAMPLE } from '../../utils/Mocks';
