@@ -1,0 +1,25 @@
+@import url("https://use.typekit.net/shp0tlv.css");
+
+#appbar-container {
+  position: absolute;
+  right: 3em;
+  top: 3em;
+}
+
+#account-button {
+  font-family: proxima-nova, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 19px;
+  color: white;
+  border: none;
+  padding: 7px 15px;
+  border-radius: 25px;
+  background-color: #2db954;
+  outline: none;
+}
+
+#account-button:hover {
+  color: black;
+  transition: 0.3s ease-in-out;
+}

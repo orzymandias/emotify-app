@@ -2,8 +2,8 @@
 
 body {
   background-image: url("../../images/Emotify-BG.jpg");
+  background-attachment: fixed;
   background-position: center;
-  background-size: auto;
   background-repeat: no-repeat;
   display: grid;
   justify-items: center;
@@ -12,7 +12,10 @@ body {
 }
 
 .home {
-  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #title {
@@ -39,5 +42,6 @@ body {
   font-weight: 600;
   font-style: normal;
   font-size: 17px;
+  margin-top: 115px;
   margin-bottom: -175px;
 }

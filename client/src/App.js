@@ -42,6 +42,9 @@ const App = (props) => {
         try {
           const predictionResponse = await postText(event.target.value);
           setPrediction(predictionResponse.data);
+          /*if (want to run on own library) {
+            const reccoResponse = ...
+          } else {*/
           const reccoResponse = await getRecommendation(
             predictionResponse.data.emotion
           );
