@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
-    "test": "jshint index.js",
+    "test": "jshint index.jst ",
     "client": "cd client && npm run start",
     "dev": "concurrently --kill-others-on-fail \"nodemon index.js\" \"npm run client\"",
     "dev-full": "concurrently --kill-others-on-fail \"npm start\" \"npm run client\""
