@@ -1,5 +1,5 @@
 /**
- * @description services.js for making external queries
+ * @description services/index.js for making external queries to proxy server
  */
 import axios from 'axios';
 import {

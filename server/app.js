@@ -2,10 +2,10 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const passport = require('passport');
+const chalk = require('chalk');
 const apiRouter = require('./routes');
 const spotifyRouter = require('./routes/spotify');
 const config = require('./utils/config');
-const chalk = require('chalk');
 
 // passport config
 require('./utils/auth_config')(passport);
@@ -28,14 +28,23 @@ app.get('/', (req, res) => {
   res.send('Welcome to the server');
 });
 
-app.get('/auth/spotify', passport.authenticate('spotify'));
+app.get(
+  '/auth/spotify',
+  passport.authenticate('spotify', {
+    scope: [
+      'user-read-private',
+      'playlist-modify-public',
+      'playlist-read-private',
+      'playlist-modify-private',
+    ],
+  })
+);
 // On authentication, the client is suppose to make href to the redirect path, while storing accesstoken to state
 
 app.get(
   '/auth/spotify/callback',
   passport.authenticate('spotify', { failureRedirect: '/login' }),
   (req, res) => {
-    // res.json({ accessToken: req.authInfo, user: req.user, redirect_path: '/' });
     return res.redirect(
       `${config.CLIENT_URL}?user=${req.user.username}&token=${req.authInfo}`
     );

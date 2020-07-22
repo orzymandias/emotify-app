@@ -1,11 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Route, withRouter } from "react-router-dom";
-import "./App.css";
-import Home from "./pages/Home/Home";
-import SearchResults from "./pages/SearchResults/SearchResults";
-import { AppBar } from "./components/AppBar";
-import { postText, getRecommendation } from "./services/index.js";
-import { UserProvider } from "./context/UserProvider";
+import React, { useState, useRef, useEffect } from 'react';
+import { Route, withRouter } from 'react-router-dom';
+import './App.css';
+import Home from './pages/Home/Home';
+import SearchResults from './pages/SearchResults/SearchResults';
+import { AppBar } from './components/AppBar';
+import { postText, getRecommendation } from './services/index.js';
+import { UserProvider } from './context/UserProvider';
 
 const App = (props) => {
   /**
@@ -25,17 +25,17 @@ const App = (props) => {
       firstUpdate.current = false;
       return;
     }
-    props.history.push("/search-results");
+    props.history.push('/search-results');
   }, [prediction, props.history]);
 
   /**
    * Handles ENTER event. Send fetch request to Emotify-model for prediction object.
    */
   const userInputEnteredHandler = async (event) => {
-    if (event.key === "Enter") {
-      const userInput = document.getElementById("searchbar").value;
-      if (userInput === "") {
-        alert("Please input some text");
+    if (event.key === 'Enter') {
+      const userInput = document.getElementById('searchbar').value;
+      if (userInput === '') {
+        alert('Please input some text');
       } else {
         event.preventDefault();
         // localStorage.setItem('user-input', event.target.value);
@@ -50,9 +50,10 @@ const App = (props) => {
           );
           setRecommendation(reccoResponse.data);
         } catch (err) {
+          console.log('error in onEnter', err);
           if (err.response.status === 413) {
             // Input text is too large (more than 102,386 characters)
-            alert("Please enter a shorter piece of text");
+            alert('Please enter a shorter piece of text');
           } else {
             alert(err);
             console.error(err);

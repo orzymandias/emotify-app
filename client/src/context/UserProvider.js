@@ -7,6 +7,8 @@ const loginReducer = (state, action) => {
       return { ...state, userObject: action.payload };
     case 'SET_TOKEN':
       return { ...state, accessToken: action.payload };
+    case 'SAVE_PLAYLISTS':
+      return { ...state, userPlaylists: action.payload };
     case 'LOG_OUT':
       return { ...initState };
     default:
@@ -17,6 +19,7 @@ const loginReducer = (state, action) => {
 const initState = {
   userObject: null,
   accessToken: null,
+  userPlaylists: null,
 };
 
 export const UserProvider = ({ children }) => {
