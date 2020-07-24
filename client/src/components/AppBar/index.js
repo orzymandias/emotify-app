@@ -17,7 +17,6 @@ export const AppBar = withRouter((props) => {
       dispatch({ type: "SET_USER", payload: query.user });
       dispatch({ type: "SET_TOKEN", payload: query.token });
       sessionStorage.setItem("userLoggedIn", true);
-
       window.history.replaceState(null, null, `${window.location.origin}/`);
     }
     // CASE 2: if user already logged in based on current session but accessToken missing
@@ -30,18 +29,20 @@ export const AppBar = withRouter((props) => {
     }
   }, []);
 
+  const isLoggedIn = () => {
+    return userState.userObject ? true : false;
+  };
+
   const onClickLogin = (e) => {
     return isLoggedIn()
       ? handleLogout()
       : (window.location = SPOTIFY_USER_AUTH);
   };
+
   const handleLogout = () => {
     dispatch({ type: "LOG_OUT", payload: "" });
   };
 
-  const isLoggedIn = () => {
-    return userState.userObject ? true : false;
-  };
   return (
     <>
       <div id="appbar-container">

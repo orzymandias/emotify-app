@@ -35,4 +35,28 @@
   display: flex;
   width: 85%;
   margin: auto;
+  flex-direction: column;
+  min-height: 170px;
+}
+
+#user-checkbox-container {
+  color: white;
+  font-family: proxima-nova, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+}
+
+.user-checkbox {
+  margin: 15px 15px 15px 8px;
+  cursor: pointer;
+}
+
+#dummy-user-checkbox-container {
+  visibility: hidden;
+  color: white;
+  font-family: proxima-nova, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
 }

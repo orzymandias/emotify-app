@@ -1,11 +1,12 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import { Route, withRouter } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home/Home";
 import SearchResults from "./pages/SearchResults/SearchResults";
 import { AppBar } from "./components/AppBar";
 import { postText, getRecommendation } from "./services/index.js";
-import { UserProvider } from "./context/UserProvider";
+import { UserProvider, userContext } from "./context/UserProvider";
+import { getUserLibrary } from "./services/userLibrary";
 
 const App = (props) => {
   /**
@@ -14,6 +15,12 @@ const App = (props) => {
    */
   const [prediction, setPrediction] = useState({});
   const [recommendation, setRecommendation] = useState({});
+  const [runOnUserLibrary, setRunOnUserLibrary] = useState(false);
+  //const { userState, dispatch } = useContext(userContext);
+
+  const checkboxCheckedHandler = () => {
+    runOnUserLibrary ? setRunOnUserLibrary(false) : setRunOnUserLibrary(true);
+  };
 
   /**
    * POST emotion
@@ -42,14 +49,22 @@ const App = (props) => {
         try {
           const predictionResponse = await postText(event.target.value);
           setPrediction(predictionResponse.data);
-          /*if (want to run on own library) {
-            const reccoResponse = ...
-          } else {*/
-          const reccoResponse = await getRecommendation(
-            predictionResponse.data.emotion
-          );
+          let reccoResponse;
+          //TODO!!!
+          if (runOnUserLibrary) {
+            // fetch music
+            // reccoResponse = await getUserLibrary(userState.accessToken);
+            // console.log(reccoResponse);
+            // parse tracks to make query strings and make request for audio features
+            // filter tracks
+          } else {
+            reccoResponse = await getRecommendation(
+              predictionResponse.data.emotion
+            );
+          }
           setRecommendation(reccoResponse.data);
         } catch (err) {
+          //console.log('error in onEnter', err);
           if (err.response.status === 413) {
             // Input text is too large (more than 102,386 characters)
             alert("Please enter a shorter piece of text");
@@ -69,7 +84,12 @@ const App = (props) => {
         <Route
           exact
           path="/"
-          render={() => <Home onKeyPress={userInputEnteredHandler} />}
+          render={() => (
+            <Home
+              onKeyPress={userInputEnteredHandler}
+              onCheckboxCheck={checkboxCheckedHandler}
+            />
+          )}
         />
         <Route
           exact

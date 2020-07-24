@@ -17,9 +17,10 @@
   border-radius: 25px;
   background-color: #2db954;
   outline: none;
+  cursor: pointer;
 }
 
 #account-button:hover {
-  color: black;
+  background-color: #137a21;
   transition: 0.3s ease-in-out;
 }

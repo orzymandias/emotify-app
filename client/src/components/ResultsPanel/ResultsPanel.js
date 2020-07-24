@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import "./ResultsPanel.css";
+import { userContext } from "../../context/UserProvider";
 import { Frame } from "./frames";
+import { getPlaylists } from "../../services/playlist";
 
 const ResultsPanel = (props) => {
+  const { userState, dispatch } = useContext(userContext);
   const { tracks } = props;
+
+  useEffect(() => {
+    // if user is logged in, fetch playlists
+    (async () => {
+      if (userState.userObject) {
+        try {
+          const playlists = await getPlaylists(userState.accessToken);
+          dispatch({ type: "SAVE_PLAYLISTS", payload: playlists.data.items });
+        } catch (error) {
+          console.log("error fetching playlists", error);
+          alert("Playlist cannot be fetched");
+        }
+      }
+    })();
+  }, []);
+
   return (
     <div id="results-panel">
       <p>
