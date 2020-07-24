@@ -1,17 +1,15 @@
-import React from "react";
-import { EMOTION_CLASSES } from "../../utils/Constants";
-import ResultsPanel from "../../components/ResultsPanel/ResultsPanel";
-import Popup from "../../components/ResultsPanel/Popup";
+import React from 'react';
+import { EMOTION_CLASSES } from '../../utils/Constants';
+import ResultsPanel from '../../components/ResultsPanel/ResultsPanel';
+import Popup from '../../components/ResultsPanel/Popup';
 // import { TRACKS_SAMPLE } from '../../utils/Mocks';
-import "./SearchResults.css";
+import './SearchResults.css';
 
 const SearchResults = (props) => {
   const { emotion, prediction, salience, ...rest } = props.prediction;
   const { recommendation } = props.recommendation;
 
-  document.body.style.backgroundImage = "none";
-
-  console.log(props.recommendation);
+  document.body.style.backgroundImage = 'none';
 
   return (
     <div className="search-results">
@@ -21,11 +19,10 @@ const SearchResults = (props) => {
           Emotify
         </a>
       </div>
-      {/* <ResultsPanel tracks={TRACKS_SAMPLE} /> */}
-      {props.recommendation || props.userTracks ? (
+      {props.recommendation.tracks || props.userTracks[0] ? (
         <ResultsPanel
           tracks={
-            props.reccomendation
+            props.recommendation.tracks
               ? props.recommendation.tracks
               : props.userTracks
           }

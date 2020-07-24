@@ -1,8 +1,8 @@
-import React, { useEffect, useContext } from "react";
-import "./ResultsPanel.css";
-import { userContext } from "../../context/UserProvider";
-import { Frame } from "./frames";
-import { getPlaylists } from "../../services/playlist";
+import React, { useEffect, useContext } from 'react';
+import './ResultsPanel.css';
+import { userContext } from '../../context/UserProvider';
+import { Frame } from './frames';
+import { getPlaylists } from '../../services/playlist';
 
 const ResultsPanel = (props) => {
   const { userState, dispatch } = useContext(userContext);
@@ -14,17 +14,14 @@ const ResultsPanel = (props) => {
       if (userState.userObject) {
         try {
           const playlists = await getPlaylists(userState.accessToken);
-          dispatch({ type: "SAVE_PLAYLISTS", payload: playlists.data.items });
+          dispatch({ type: 'SAVE_PLAYLISTS', payload: playlists.data.items });
         } catch (error) {
-          console.log("error fetching playlists", error);
-          alert("Playlist cannot be fetched");
+          console.log('error fetching playlists', error);
+          alert('Playlist cannot be fetched');
         }
       }
     })();
   }, []);
-
-  console.log(tracks);
-  console.log(typeof tracks);
 
   return (
     <div id="results-panel">
@@ -35,13 +32,15 @@ const ResultsPanel = (props) => {
       <br />
 
       <div className="results">
-        {/* {tracks.map((trackObj) => {
-          return (
-            <div className="result-container">
-              <Frame trackId={trackObj.id} />;
-            </div>
-          );
-        })} */}
+        {tracks
+          ? tracks.map((trackObj) => {
+              return (
+                <div className="result-container">
+                  <Frame trackId={trackObj.id} />;
+                </div>
+              );
+            })
+          : null}
       </div>
     </div>
   );
