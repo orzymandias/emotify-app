@@ -26,6 +26,7 @@ const SearchBar = (props) => {
                   type="checkbox"
                   className="user-checkbox"
                   onClick={props.onCheckboxCheck}
+                  onKeyPress={props.onKeyPress}
                 />
               </span>
             ) : (

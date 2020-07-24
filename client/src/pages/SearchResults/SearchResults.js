@@ -1,16 +1,25 @@
-import React from 'react';
-import { EMOTION_CLASSES } from '../../utils/Constants';
-import ResultsPanel from '../../components/ResultsPanel/ResultsPanel';
-import Popup from '../../components/ResultsPanel/Popup';
+import React from "react";
+import { EMOTION_CLASSES } from "../../utils/Constants";
+import ResultsPanel from "../../components/ResultsPanel/ResultsPanel";
+import Popup from "../../components/ResultsPanel/Popup";
 // import { TRACKS_SAMPLE } from '../../utils/Mocks';
-import './SearchResults.css';
+import "./SearchResults.css";
+import { ErrorMessage } from "../../components/ResultsPanel/NoTracksFound";
 
 const SearchResults = (props) => {
   const { emotion, prediction, salience, ...rest } = props.prediction;
   const { recommendation } = props.recommendation;
 
-  document.body.style.backgroundImage = 'none';
+  document.body.style.backgroundImage = "none";
 
+  // If no search results can be found, after 3 seconds an error message will appear
+  setTimeout(function () {
+    if (document.getElementById("error-message")) {
+      document.getElementById("error-message").style.visibility = "visible";
+    }
+  }, 3000);
+
+  //TODO: change null to ErrorMessage but have its appearance delayed
   return (
     <div className="search-results">
       <Popup />
@@ -28,7 +37,9 @@ const SearchResults = (props) => {
           }
           emotion={EMOTION_CLASSES[emotion]}
         />
-      ) : null}
+      ) : (
+        <ErrorMessage />
+      )}
     </div>
   );
 };

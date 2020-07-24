@@ -53,15 +53,17 @@ const App = (props) => {
         event.preventDefault();
         // localStorage.setItem('user-input', event.target.value);
         try {
-          const predictionResponse = await postText(event.target.value);
+          const predictionResponse = await postText(userInput);
           setPrediction(predictionResponse.data);
           if (runOnUserLibrary) {
             let userSongsResponse = await getUserLibrary(userState.accessToken);
+            console.log(userSongsResponse);
             let qs = userSongsResponse.data.items.reduce(
-              (total, track) => total + "," + track.id,
+              (total, trackEntry) => total + "," + trackEntry.track.id,
               ""
             );
             qs = qs.replace(",", "?ids=");
+            console.log(qs);
             let audioFeatureResponse = await getAudioFeatures(qs);
             let filteredTracks = audioFeatureResponse.data.audio_features.filter(
               (track) => {

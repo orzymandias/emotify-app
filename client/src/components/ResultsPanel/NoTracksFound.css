@@ -1,0 +1,20 @@
+@import url("https://use.typekit.net/shp0tlv.css");
+
+#error-message {
+  font-family: proxima-nova, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 25px;
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+
+#error-message-container {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
