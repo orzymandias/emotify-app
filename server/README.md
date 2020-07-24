@@ -9,7 +9,7 @@ Open endpoints require no Authentication.
 
 * [Model](model.md) : `GET /api/model/`
 * [Spotify](https://developer.spotify.com/documentation/web-api/reference/) : `GET /api/spotify/` (Proxy endpoint)
-   * Accessible only with client credentials in .env file, contact maintainers for CLIENT_SECRET
+   * Accessible only with client credentials in `.env.example` file, contact maintainers for `CLIENT_SECRET` and `CLIENT_ID`
 
 
 ### Current User related
