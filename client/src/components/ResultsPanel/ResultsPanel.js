@@ -23,6 +23,9 @@ const ResultsPanel = (props) => {
     })();
   }, []);
 
+  console.log(tracks);
+  console.log(typeof tracks);
+
   return (
     <div id="results-panel">
       <p>
@@ -32,13 +35,13 @@ const ResultsPanel = (props) => {
       <br />
 
       <div className="results">
-        {tracks.map((trackObj) => {
+        {/* {tracks.map((trackObj) => {
           return (
             <div className="result-container">
               <Frame trackId={trackObj.id} />;
             </div>
           );
-        })}
+        })} */}
       </div>
     </div>
   );

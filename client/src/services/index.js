@@ -67,3 +67,11 @@ export const getUser = (feature) => {
 export const loginSpotify = () => {
   return axios.get(`${process.env.REACT_APP_HOST}/auth/spotify`);
 };
+
+export const getAudioFeatures = (qs) => {
+  const options = {
+    url: `${process.env.REACT_APP_HOST}/api/spotify/audio-features/${qs}`,
+    method: "get",
+  };
+  return axios(options);
+};

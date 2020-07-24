@@ -38,6 +38,7 @@ app.get(
       "playlist-modify-private",
       "user-library-read",
       "user-library-modify",
+      "user-top-read",
     ],
   })
 );

@@ -11,6 +11,8 @@ const SearchResults = (props) => {
 
   document.body.style.backgroundImage = "none";
 
+  console.log(props.recommendation);
+
   return (
     <div className="search-results">
       <Popup />
@@ -20,9 +22,13 @@ const SearchResults = (props) => {
         </a>
       </div>
       {/* <ResultsPanel tracks={TRACKS_SAMPLE} /> */}
-      {props.recommendation.tracks ? (
+      {props.recommendation || props.userTracks ? (
         <ResultsPanel
-          tracks={props.recommendation.tracks}
+          tracks={
+            props.reccomendation
+              ? props.recommendation.tracks
+              : props.userTracks
+          }
           emotion={EMOTION_CLASSES[emotion]}
         />
       ) : null}
