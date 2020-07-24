@@ -1,14 +1,24 @@
 # Emotify-App
 
+> Emotify is a music recommendation service. It allows users to input any piece of text and through emotion analysis, it will generate a selection of songs that match the emotional content of the text. This repository in contains both frontend and server side code.
+
+
 [![Build Status](https://travis-ci.org/orzymandias/emotify-app.svg?branch=master)](https://travis-ci.org/orzymandias/emotify-app)
 
-Emotify is a music recommendation service. This repository in contains both frontend and server side code.
-
-The Emotify model is available [here](https://github.com/orzymandias/emotify-model).
+[![INSERT YOUR GRAPHIC HERE](https://i.imgur.com/7TFeVYx.jpg)](https://i.imgur.com/7TFeVYx.jpg)
 
 ## Features
 
-- Search Functionality
+- **Main search functionality**
+  - What it is: The main feature where users can retrieve music based on emotion analysis of their input text.
+  - The Emotify model is available [here](https://github.com/orzymandias/emotify-model).
+
+- **Ability to run Emotify on your own Spotify library**
+  - What it is: Users can choose to use Emotify’s search functionality to search for music within their own Spotify listening history and enjoy Emotify’s search functionality for music that they already know and love.
+
+- **Add track to Spotify playlist**
+  - What it is: Users can log in to Spotify within Emotify and add tracks from the results page directly to their Spotify playlists.
+
 
 ## Getting Started
 
