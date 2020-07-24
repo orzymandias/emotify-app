@@ -5,7 +5,7 @@
 
 [![Build Status](https://travis-ci.org/orzymandias/emotify-app.svg?branch=master)](https://travis-ci.org/orzymandias/emotify-app)
 
-[![INSERT YOUR GRAPHIC HERE](https://i.imgur.com/7TFeVYx.jpg)]()
+[![INSERT YOUR GRAPHIC HERE](https://i.imgur.com/7TFeVYx.jpg)](https://i.imgur.com/7TFeVYx.jpg)
 
 ## Features
 
