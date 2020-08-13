@@ -19,7 +19,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:ui": "rm -rf build  && npm run build --prod && cp -r build ../server"
+    "build:ui": "rm -rf build  && npm run build --prod && cp -r build ../server",
+    "start:development": "env-cmd -f .env.development react-scripts start",
+    "build:production": "env-cmd -f .env.production npm run react-scripts build",
+    "production": "env-cmd -f .env.production react-scripts start"
   },
   "proxy": "http://localhost:3001",
   "eslintConfig": {
@@ -36,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
   }
 }
