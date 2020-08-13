@@ -1,6 +1,7 @@
 # Emotify-App
 
 > Emotify is a music recommendation service. It allows users to input any piece of text and through emotion analysis, it will generate a selection of songs that match the emotional content of the text. This repository in contains both frontend and server side code.
+ Try it here: https://emotify.netlify.app
 
 
 [![Build Status](https://travis-ci.org/orzymandias/emotify-app.svg?branch=master)](https://travis-ci.org/orzymandias/emotify-app)
