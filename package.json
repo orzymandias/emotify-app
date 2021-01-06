@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/orzymandias/emotify-backend#readme",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "chalk": "^4.1.0",
     "circular-json": "^0.5.9",
     "concurrently": "^5.2.0",
